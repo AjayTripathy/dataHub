@@ -3,7 +3,7 @@ var ObjectID = require('mongoskin').ObjectID;
 var db = mongo.db('localhost:27017/dataHub?auto_reconnect', {safe: true});
 var MetaData = db.collection('MetaData');
 var Users = db.collection('Users');
-var validate = require('../lib/require')
+var validate = require('../lib/validate')
 
 
 var doInsert = function(toInsert){
@@ -13,7 +13,7 @@ var doInsert = function(toInsert){
         } 
         var result = data[0];
         result['_id'] = result['_id'].toString();
-        res.send('status': 'ok', 'dataId': result['_id']);
+        res.send({'status': 'ok', 'dataId': result['_id']});
     });
 }
 
@@ -21,7 +21,7 @@ var doInsertIfValid = function(metadata, file){
     
     isValidFile = validate.validateFile(file, metadata);
     if(isValidFile){
-        doInsert(toInsert, location);
+        doInsert(metadata);
     }
     else{
         res.send({'status': 'error', 'msg': 'invalid file at location' + req.body.link });
@@ -66,7 +66,7 @@ exports.uploadDataSetToStorage = function(req, res){
         if (user.hasHostedUploadPermissions){            
             //TODO: asynchronously write the file to s3 in a streaming fashion
             //TODO: set the location to be a link to the s3 file
-            toInsert.location = null;
+            toInsert['location'] = null;
             doInsertIfValid(toInsert, file);
         }
         else{
