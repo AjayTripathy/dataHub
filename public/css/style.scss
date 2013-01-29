@@ -1,0 +1,33 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+.sidebar-pane {
+  @include span-columns(4);
+}
+
+.result-pane {
+  @include span-columns(8);
+}
+
+.pane {
+  border: 1px solid grey;
+}
+
+.header {
+  @include span-columns(12);
+  background-color: red;
+}
+
+.nav {
+  @include span-columns(4 of 12);
+  float: right;
+}
+
+.nav ul {
+  display: inline;
+  list-style: none;
+}
+
+.logo {
+ @include span-columns(6 of 12);
+}
