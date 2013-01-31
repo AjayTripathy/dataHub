@@ -1,0 +1,32 @@
+input[type="text"] {
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #d0d0d0;
+}
+
+
+label {
+  display: block;
+}
+
+select {
+
+}
+
+button {
+  padding: 15px;
+  background-color: #27A6DE;
+  color: #fff;
+  border: 1px solid #2296C7;
+  border-radius: 2px;
+  box-shadow: none;
+  font-size: modular-scale(14px, 0, 1.25);
+}
+
+button:hover {
+  background-color: #259ED3;
+}
+
+button:active {
+  background-color: #1F84B1;
+}

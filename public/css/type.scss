@@ -1,0 +1,33 @@
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-size: modular-scale(14px, 3, 1.25);
+  line-height: modular-scale(14px, 4, 1.25);
+}
+
+h2 {
+  font-size: modular-scale(14px, 2, 1.25);
+  line-height: modular-scale(14px, 3, 1.25);
+}
+
+h3 {
+  font-size: modular-scale(14px, 2, 1.25);
+}
+
+body {
+  font-size: modular-scale(14px, 0, 1.25);
+  font-family: $helvetica;
+  color: #38414f;
+  background-color: #00425F;
+}
+
+p {
+  line-height: modular-scale(14px, 2, 1.25);
+}
+
+.detail-text {
+  color: #858585;
+}
+
