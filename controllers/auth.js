@@ -10,3 +10,19 @@ exports.login = function(req, res){
 		req.session.user = doc;
 	});
 };
+
+exports.checkPermission = function(permission){
+	var userLoggedIn = function(req, res, next){
+		if ( ! req.session.user){
+			res.redirect('/login')
+		}
+		else if (req.session.user && (! req.session.user.permissions[permission])){
+			res.send(403);
+		}
+		else if (req.session.user && req.session.user.permissions[permission]){
+			next();
+		}
+		
+	}
+	return userLoggedIn;
+}
