@@ -1,14 +1,110 @@
 <div class="sidebar-pane pane">
   <div class="filterset">
-    <input type="text" placeholder="Search"/>
+    <input class="sidebar-search filterset-options" type="text" placeholder="Search"/>
   </div>
   <div class="filterset">
-    <h2 class="filterset-title title">File Formats</h2>
-    <input type="checkbox">CSV</input>
-    <input type="checkbox">Microsoft Excel</input>
-    <input type="checkbox">XML</input>
+    <h2 class="filterset-title title filterset-element">File Formats</h2>
+    <div class="filterset-options filterset-element">
+      <label for="csv-type">
+        <input type="checkbox" id="csv-type"> CSV
+      </label>
+      <label for="xls-type">
+        <input type="checkbox" id="xls-type"> Microsoft Excel
+      </label>
+      <label for="xml-type">
+        <input type="checkbox" id="xml-type"> XML
+      </label>
+    </div>
   </div>
+
+  <div class="filterset">
+    <h2 class="filterset-title title filterset-element">Tags</h2>
+    <div class="filterset-options filterset-element">
+      <label for="csv-type">
+        <input type="checkbox" id="csv-type"> CSV
+      </label>
+      <label for="xls-type">
+        <input type="checkbox" id="xls-type"> Microsoft Excel
+      </label>
+      <label for="xml-type">
+        <input type="checkbox" id="xml-type"> XML
+      </label>
+    </div>
+  </div>
+
+  <div class="filterset">
+    <h2 class="filterset-title title filterset-element">Data source</h2>
+    <div class="filterset-options filterset-element">
+      <label for="csv-type">
+        <input type="checkbox" id="csv-type"> CSV
+      </label>
+      <label for="xls-type">
+        <input type="checkbox" id="xls-type"> Microsoft Excel
+      </label>
+      <label for="xml-type">
+        <input type="checkbox" id="xml-type"> XML
+      </label>
+    </div>
+  </div>
+
+  <div class="filterset">
+    <h2 class="filterset-title title filterset-element">Update frequency</h2>
+    <div class="filterset-options filterset-element">
+      <select name="frequency" id="frequency-select">
+        <option>Static</option>
+        <option>Weekly</option>
+        <option>Monthly</option>
+        <option>Yearly</option>
+        <option>Continuously</option>
+      </select>
+    </div>
+  </div>
+
+
 </div>
-<div id="results-pane pane">
-  
+<div class="results-pane pane">
+  <h1 class="results-title title">496 datasets found</h1>
+  <div class="results-set">
+    <div class="result">
+      <div class="result-desc">
+        <h2>US Tomato Exports</h2>
+        <div class="result-byline">
+          <span class="repo-author">sridatta</span>
+          <span class="repo-rows">15600</span>
+        </div>
+        <p>Since, in the long run, every planetary civilization will be endangered by impacts from space, every surviving civilization is obliged to become spacefaring--not because of exploratory or romantic zeal, but for the most practical reason imaginable: staying alive... </p>
+      </div>
+      <div class="result-actions">
+        <div class="price-well well">
+          <span class="price">$49</span>
+        </div>
+        <button type="submit">Buy</button>
+      </div>
+    </div>
+    <div class="result">
+      <div class="result-desc">
+        <h2>Annual UFO Sightings</h2>
+        <p>Since, in the long run, every planetary civilization will be endangered by impacts from space, every surviving civilization is obliged to become spacefaring--not because of exploratory or romantic zeal, but for the most practical reason imaginable: staying alive... </p>
+      </div>
+      <div class="result-actions">
+        <div class="price-well well">
+          <span class="price">Free</span>
+        </div>
+        <button type="submit">Buy</button>
+      </div>
+    </div>
+    <div class="result">
+      <div class="result-desc">
+        <h2>State and County Tax Rates</h2>
+        <p>Since, in the long run, every planetary civilization will be endangered by impacts from space, every surviving civilization is obliged to become spacefaring--not because of exploratory or romantic zeal, but for the most practical reason imaginable: staying alive... </p>
+      </div>
+      <div class="result-actions">
+        <div class="price-well well">
+          <span class="price">Purchased</span>
+        </div>
+
+        <button type="submit">Buy</button>
+      </div>
+    </div>
+  </div>
 </div>
