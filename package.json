@@ -13,7 +13,8 @@
     "socket.io": "*",
     "async": "*",
     "formidable": "*",
-    "connect-mongodb": "*"
+    "connect-mongodb": "*",
+    "express-form": "*"
   },
   "repository": {
     "type": "git",
