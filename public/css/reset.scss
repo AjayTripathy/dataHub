@@ -63,3 +63,14 @@ table{
     border-spacing:0;
 }
 
+a:visited {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
