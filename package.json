@@ -10,6 +10,7 @@
   "dependencies":{
     "express": "<3",
     "mongoskin": "*",
+    "connect-mongo": "*",
     "socket.io": "*",
     "async": "*",
     "formidable": "*",
