@@ -3,7 +3,8 @@ var ObjectID = require('mongoskin').ObjectID;
 var db = mongo.db('localhost:27017/dataHub?auto_reconnect', {safe: true});
 var MetaData = db.collection('MetaData');
 var Users = db.collection('Users');
-var validate = require('../lib/validate')
+var validate = require('../lib/validate');
+
 
 
 var doInsert = function(toInsert){
@@ -24,7 +25,7 @@ var doInsertIfValid = function(metadata, file){
         doInsert(metadata);
     }
     else{
-        res.send({'status': 'error', 'msg': 'invalid file at location' + req.body.link });
+        res.send({'status': 'error', 'msg': 'invalid file'});
     }
 }
 
@@ -36,6 +37,7 @@ var constructMetadataFromReq = function(req, isHotlinked){
     var rss = req.body.rss;
     var format = req.body.format;
     var tags = req.body.tags;
+    var source = req.body.source;
     var metadata =  {
                         'tableTitle': tableTitle,
                         'columnNames': columnNames,
@@ -43,7 +45,8 @@ var constructMetadataFromReq = function(req, isHotlinked){
                         'rss': rss,
                         'isHotLinked': isHotLinked,
                         'format': format,
-                        'tags': tags
+                        'tags': tags,
+                        'source': source 
                     };
     return metadata
 }
@@ -56,24 +59,10 @@ var getFileThenInsertIfValid = function(hotlink, metadata){
 
 
 exports.uploadDataSetToStorage = function(req, res){
-    var metadata = constructMetadataFromReq(req, false);
-    //check if the user has permissions to use our s3 bucket, then upload the actual file to s3 after validating
-    Users.findById(uploaderId, function(err, result){
-        if(err){
-            throw err;
-        }
-        user = result;
-        if (user.hasHostedUploadPermissions){            
-            //TODO: asynchronously write the file to s3 in a streaming fashion
-            //TODO: set the location to be a link to the s3 file
-            toInsert['location'] = null;
-            doInsertIfValid(toInsert, file);
-        }
-        else{
-            res.send({'status': 'error', 'msg' :'permission denied, hotlink instead'});
-        }
-
-    });
+    //TODO: upload the file
+    //TODO: Do a streaming upload of the file to s3
+    toInsert['location'] = "";
+    doInsertIfValid(toInsert, file);
 };
 
 exports.addDataSetFromHotlink = function(req, res){
