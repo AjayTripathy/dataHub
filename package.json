@@ -15,7 +15,8 @@
     "async": "*",
     "formidable": "*",
     "connect-mongodb": "*",
-    "express-form": "*"
+    "express-form": "*",
+    "node_hash": "*"
   },
   "repository": {
     "type": "git",
