@@ -1,3 +1,5 @@
+var form = require('express-form'),
+    field = form.field;
 var mongo = require('mongoskin');
 var ObjectID = require('mongoskin').ObjectID;
 var db = mongo.db('localhost:27017/dataHub?auto_reconnect', {safe: true});
@@ -30,6 +32,11 @@ exports.register = function(req, res){
     });
 }
 
+exports.validateLogin = form(
+  field('email').required('Email', 'Please enter an email').toLower().trim().isEmail('Email address is not valid'), 
+  field('password').required('Password', 'Please enter a password')
+);
+
 exports.login = function(req, res){
 	if (!req.form.isValid) {
       res.send({'status': 'error', 'msg': 'fill out the forms completely'});
@@ -61,4 +68,4 @@ exports.checkPermission = function(permission){
 		
 	}
 	return userLoggedIn;
-}
+};

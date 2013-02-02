@@ -11,6 +11,10 @@ exports.create = function(req, res) {
   res.render('create');
 };
 
+exports.register = function(req, res) {
+  res.render('register');
+};
+
 exports.login = function(req, res) {
   res.render('login');
 };
