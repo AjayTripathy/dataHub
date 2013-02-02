@@ -122,7 +122,6 @@
 
 .price-well {
   margin: 0 auto;
-  padding: 15px 0;
   text-align: center;
 }
 
@@ -139,6 +138,16 @@
   display:block;
   margin: 0 auto;
 }
+
+.well {
+  background-color: #f5f5f5;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  padding: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .content {
   @include span-columns(8);
   @include shift(2);
