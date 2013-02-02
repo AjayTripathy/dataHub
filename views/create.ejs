@@ -1,1 +1,18 @@
-<p>foobar</p>
+<div class="content content-fill">
+  <h1>Upload a dataset</h1>
+  <form action="/create" method="post">
+    <label for="name">
+      <span class="form-label">Dataset name</span>
+      <input type="text" name="name" id="name" value="" />
+    </label>
+    <label for="description">
+      <span class="form-label">Description</span>
+      <textarea name="description" id="description" value=""></textarea>
+    </label>
+    <label for="url">
+      <span class="form-label">URL</span>
+      <input type="text" name="url" id="url" value="" />
+    </label>
+    <button type="submit">Create</button>
+  </form>
+</div>
