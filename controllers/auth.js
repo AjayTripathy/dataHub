@@ -2,6 +2,33 @@ var mongo = require('mongoskin');
 var ObjectID = require('mongoskin').ObjectID;
 var db = mongo.db('localhost:27017/dataHub?auto_reconnect', {safe: true});
 var Users = db.collection('Users');
+var hash = require('node_hash');
+
+var generateId = function(){
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	for( var i=0; i < 8; i++ ) {
+    	text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+}
+
+exports.register = function(req, res){
+	if (!req.form.isValid) {
+      res.send({'status': 'error', 'msg': 'invalid form'});
+      return;
+    }
+    var user = req.form;
+    user.permissions = {'hostedUpload': false, 'hotlink': true };
+    user.salt = generateId();
+    user.password = hash.sha256(user.password, user.salt);
+    Users.insert(user, {safe: true}, function(err, doc){
+    	doc = doc[0];
+        doc._id = doc._id.toString();
+        req.session.user = doc;
+        res.redirect('/dashboard');
+    });
+}
 
 exports.login = function(req, res){
 	if (!req.form.isValid) {
