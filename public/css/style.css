@@ -88,12 +88,6 @@ h2 {
 h3 {
   font-size: 21.875px; }
 
-body {
-  font-size: 14px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #38414f;
-  background-color: #00425F; }
-
 p {
   line-height: 21.875px; }
 
@@ -117,7 +111,7 @@ input[type="text"], input[type="password"] {
 label {
   display: block; }
 
-button {
+button, .button {
   padding: 15px;
   background-color: #27A6DE;
   color: #fff;
@@ -133,6 +127,12 @@ button:hover {
 button:active {
   background-color: #1F84B1; }
 
+body {
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #38414f;
+  background-color: #00425F; }
+
 .container {
   *zoom: 1;
   max-width: 68em;
@@ -146,7 +146,7 @@ button:active {
 
 .content-wrapper {
   *zoom: 1;
-  background-color: #fff; }
+  background-color: white; }
   .content-wrapper:before, .content-wrapper:after {
     content: " ";
     display: table; }
@@ -161,7 +161,7 @@ button:active {
   float: left;
   margin-right: 2.35765%;
   width: 31.76157%;
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   border-right: 1px solid #d0d0d0; }
   .sidebar-pane:last-child {
     margin-right: 0; }
@@ -200,11 +200,14 @@ button:active {
     margin-right: 0; }
 
 .nav ul {
-  display: inline;
   list-style: none; }
 
 .nav ul li {
-  padding: 13px 0; }
+  display: inline-block; }
+
+.nav-button {
+  padding: 14px 15px;
+  margin: 0 10px; }
 
 .logo {
   display: block;
@@ -224,7 +227,7 @@ button:active {
 
 .filterset-title {
   width: 100%;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   padding: 5px 25px;
   margin-bottom: 10px;
   font-size: 16px;
@@ -290,7 +293,7 @@ button:active {
   margin: 0 auto; }
 
 .well {
-  background-color: #f5f5f5;
+  background-color: whitesmoke;
   border: 1px solid #d0d0d0;
   border-radius: 2px;
   padding: 25px;
