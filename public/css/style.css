@@ -74,16 +74,21 @@ a {
 a:hover {
   text-decoration: underline; }
 
+body {
+  line-height: 21.875px; }
+
 h1, h2, h3, h4, h5 {
   font-family: "Lato", sans-serif; }
 
 h1 {
   font-size: 27.34375px;
-  line-height: 34.17969px; }
+  line-height: 34.17969px;
+  margin: 2px 0 12px 0; }
 
 h2 {
   font-size: 21.875px;
-  line-height: 27.34375px; }
+  line-height: 27.34375px;
+  margin: 9px 0; }
 
 h3 {
   font-size: 21.875px; }
@@ -99,8 +104,8 @@ input[type="text"], input[type="password"] {
   border-radius: 2px;
   border: 1px solid #d0d0d0;
   width: 75%;
-  margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-top: 7px;
+  margin-bottom: 14px; }
 
 .input-inline {
   margin: 10px; }

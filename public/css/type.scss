@@ -1,6 +1,10 @@
 $base-font: 14px;
 $scale: 1.25;
 
+body {
+  line-height: modular-scale($base-font, 2, $scale);
+}
+
 h1, h2, h3, h4, h5 {
   font-family: 'Lato', sans-serif;
 }
@@ -8,11 +12,13 @@ h1, h2, h3, h4, h5 {
 h1 {
   font-size: modular-scale($base-font, 3, $scale);
   line-height: modular-scale($base-font, 4, $scale);
+  margin: 2px 0 12px 0;
 }
 
 h2 {
   font-size: modular-scale($base-font, 2, $scale);
   line-height: modular-scale($base-font, 3, $scale);
+  margin: 9px 0;
 }
 
 h3 {
