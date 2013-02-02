@@ -26,7 +26,7 @@ app.use(express.cookieParser());
 app.use(express.session({ secret: '#yolo', maxAge : new Date(Date.now() + 2628000000)}));
 
 app.post('/uploadDataSetToStorage', auth.checkPermission('hostedUpload'), fileUpload.uploadDataSetToStorage);
-app.post('/addDataSetFromHotlink', auth.checkPermission('hotlinkUpload'), fileUpload.addDataSetFromHotlink);
+app.post('/create', auth.checkPermission('hotlinkUpload'), fileUpload.addDataSetFromHotlink);
 
 app.post('/modifyMetaData', fileUpload.modifyMetaData);
 

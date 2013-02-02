@@ -10,7 +10,7 @@ var formidable = require('formidable'),
 
 
 
-var doInsert = function(toInsert){
+var doInsert = function(toInsert , res){
     MetaData.insert(toInsert, function(err, data){
         if (err){
            throw(err);
@@ -21,11 +21,11 @@ var doInsert = function(toInsert){
     });
 }
 
-var doInsertIfValid = function(metadata, file){
+var doInsertIfValid = function(metadata, file, res){
     
     isValidFile = validate.validateFile(file, metadata);
     if(isValidFile){
-        doInsert(metadata);
+        doInsert(metadata, res);
     }
     else{
         res.send({'status': 'error', 'msg': 'invalid file'});
@@ -47,7 +47,7 @@ var constructMetadataFromReq = function(req, isHotlinked){
                         'columnNames': columnNames,
                         'uploaderId': uploaderId,
                         'rss': rss,
-                        'isHotLinked': isHotLinked,
+                        'isHotLinked': isHotlinked,
                         'format': format,
                         'tags': tags,
                         'source': source, 
@@ -57,10 +57,12 @@ var constructMetadataFromReq = function(req, isHotlinked){
     return metadata
 }
 
-var getFileThenInsertIfValid = function(hotlink, metadata){
+var getFileThenInsertIfValid = function(hotlink, metadata, res){
     //TODO: Actually fetch the file for validation. The following two lines should happen in the callback to that file fetch.
+    var file = null;
     metadata['location'] = hotlink;
-    doInsertIfValid(metadata, file);
+    doInsertIfValid(metadata, file, res);
+
 }
 
 
@@ -72,13 +74,16 @@ exports.uploadDataSetToStorage = function(req, res){
     });
     //TODO: Do a streaming upload of the file to s3
     toInsert['location'] = "";
-    doInsertIfValid(toInsert, file);
+    doInsertIfValid(toInsert, file, res);
+    res.send({'status': 'ok', 'msg': 'loading'})
 };
 
 exports.addDataSetFromHotlink = function(req, res){
     var metadata = constructMetadataFromReq(req, true);
     //go to the location, check that there is an actual file of the specified format there
-    getFileThenInsertIfValid(req.body.fileLocation , metadata);
+    getFileThenInsertIfValid(req.body.fileLocation , metadata, res);
+    //res.send({'status': 'ok', 'msg': 'loading'})
+
 };
 
 exports.modifyMetaData =  function(req, res){};
