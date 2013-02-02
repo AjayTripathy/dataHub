@@ -7,7 +7,6 @@ var mongo = require('mongoskin');
 var db = mongo.db('localhost:db27017/dataHub?auto_reconnect', {safe: true});
 var MongoStore = require('connect-mongodb');
 var fileUpload = require('./controllers/file-upload');
-var login = require('./controllers/login');
 
 var http = require('http');
 //var server = http.createServer(app);
