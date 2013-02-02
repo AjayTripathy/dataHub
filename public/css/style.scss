@@ -13,7 +13,7 @@
 
 .content-wrapper {
   @include clearfix;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .content {
@@ -22,8 +22,8 @@
 
 .sidebar-pane {
   @include span-columns(4);
-  background-color: #f5f5f5;
-  border-right: 1px solid #d0d0d0;
+  background-color: $well;
+  border-right: 1px solid $border;
 }
 
 .results-pane {
@@ -74,7 +74,7 @@
 
 .filterset-title {
   width: 100%;
-  background-color: #EBEBEB;
+  background-color: $well-accent;
   padding: 5px 25px;
   margin-bottom: 10px;
 
@@ -97,7 +97,7 @@
   @include span-columns(8 of 8);
   @include omega();
   padding: 16px 0;
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid $border;
 }
 
 .result-desc {
@@ -141,8 +141,8 @@
 }
 
 .well {
-  background-color: #f5f5f5;
-  border: 1px solid #d0d0d0;
+  background-color: $well;
+  border: 1px solid $border;
   border-radius: 2px;
   padding: 25px;
   margin-top: 15px;
