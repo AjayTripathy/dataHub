@@ -21,6 +21,7 @@ exports.register = function(req, res){
       return;
     }
     var user = req.form;
+    console.log(user)
     user.permissions = {'hostedUpload': true, 'hotlinkUpload': true };
     user.salt = generateId();
     user.password = hash.sha256(user.password, user.salt);
@@ -28,7 +29,7 @@ exports.register = function(req, res){
     	doc = doc[0];
         doc._id = doc._id.toString();
         req.session.user = doc;
-        res.redirect('/dashboard');
+        res.redirect('/');
     });
 }
 
@@ -48,14 +49,14 @@ exports.login = function(req, res){
       res.send({'status': 'error', 'msg': 'fill out the forms completely'});
       return;
     }
-	Users.findOne({email: req.form.email}, function(err, result){
+	Users.findOne({email: req.form.email}, function(err, doc){
 		if(!doc || hash.sha256(req.form.password, doc.salt) !== doc.password) {
         	res.send({'status': 'error', 'msg': 'invalid username/password combo'});
       	} 
       	else{
-			result._id = result._id.toString();
+			doc._id = doc._id.toString();
 			req.session.user = doc;
-			res.redirect('/dashboard');
+			res.redirect('/');
 		}
 	});
 };
