@@ -10,9 +10,13 @@
   @include outer-container;
 }
 
-.main {
+.content-wrapper {
   @include clearfix;
-  background-color: #fff
+  background-color: #fff;
+}
+
+.content {
+  margin: 25px 50px;
 }
 
 .sidebar-pane {
@@ -27,7 +31,7 @@
 }
 
 .pane {
-  min-height: 1000px;
+  min-height: 740px;
   padding: 16px 0 0;
 }
 
@@ -39,8 +43,8 @@
 }
 
 .nav {
-  @include span-columns(2 of 12);
-  @include shift(4);
+  @include span-columns(3 of 12);
+  @include shift(3);
 }
 
 .nav ul {
@@ -90,6 +94,7 @@
 
 .result {
   @include span-columns(8 of 8);
+  @include omega();
   padding: 16px 0;
   border-bottom: 1px solid #d0d0d0;
 }
@@ -100,6 +105,7 @@
 
 .result-actions {
   @include span-columns(2 of 8);
+  padding: 0 10px;
 }
 
 .result:hover {
@@ -116,7 +122,6 @@
 
 .price-well {
   margin: 0 auto;
-  padding: 15px 0;
   text-align: center;
 }
 
@@ -132,4 +137,18 @@
   width: 75%;
   display:block;
   margin: 0 auto;
+}
+
+.well {
+  background-color: #f5f5f5;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  padding: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.content {
+  @include span-columns(8);
+  @include shift(2);
 }

@@ -1,9 +1,19 @@
-input[type="text"] {
+input[type="text"], input[type="password"] {
   padding: 10px;
   border-radius: 2px;
   border: 1px solid #d0d0d0;
+  width: 75%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+.input-inline {
+  margin: 10px;
+}
+
+.form-label {
+  display:block;
+}
 
 label {
   display: block;
@@ -21,6 +31,7 @@ button {
   border-radius: 2px;
   box-shadow: none;
   font-size: modular-scale(14px, 0, 1.25);
+  width: 25%;
 }
 
 button:hover {
