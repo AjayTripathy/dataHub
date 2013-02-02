@@ -154,7 +154,26 @@ body {
     clear: both; }
 
 .content {
-  margin: 25px 50px; }
+  padding: 25px 0;
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .content:last-child {
+    margin-right: 0; }
+
+.content-center {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%; }
+  .content-center:last-child {
+    margin-right: 0; }
+
+.content-fill {
+  padding-left: 25px;
+  padding-right: 25px; }
 
 .sidebar-pane {
   display: block;
@@ -299,12 +318,3 @@ body {
   padding: 25px;
   margin-top: 15px;
   margin-bottom: 15px; }
-
-.content {
-  display: block;
-  float: left;
-  margin-right: 2.35765%;
-  width: 65.88078%;
-  margin-left: 17.05961%; }
-  .content:last-child {
-    margin-right: 0; }

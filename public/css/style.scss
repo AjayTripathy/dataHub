@@ -23,7 +23,18 @@ body {
 }
 
 .content {
-  margin: 25px 50px;
+  padding: 25px 0;
+  @include span-columns(12);
+}
+
+.content-center {
+  @include span-columns(8);
+  @include shift(2);
+}
+
+.content-fill {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .sidebar-pane {
@@ -159,7 +170,4 @@ body {
   margin-bottom: 15px;
 }
 
-.content {
-  @include span-columns(8);
-  @include shift(2);
-}
+
