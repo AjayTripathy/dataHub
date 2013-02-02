@@ -34,7 +34,7 @@ app.post('/findDataSets', function(req, res){ });
 app.post('/getDataSet', function(req, res){ });
 
 app.get('/', web.home);
-app.get('/sets/create', web.create);
+app.get('/create', web.create);
 
 app.post('/findDataSets', function(req, res){ });
 
