@@ -6,6 +6,12 @@
 @import "forms.scss";
 @import "colors.scss";
 
+body {
+  font-size: modular-scale(14px, 0, 1.25);
+  font-family: $helvetica;
+  color: #38414f;
+  background-color: #00425F;
+}
 
 .container {
   @include outer-container;
