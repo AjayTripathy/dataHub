@@ -42,6 +42,6 @@ app.get('/login', web.login);
 app.post('/login', auth.validateLogin, auth.login);
 
 app.get('/register', web.register);
-app.post('/register', auth.validateLogin, auth.register);
+app.post('/register', auth.validateRegistration, auth.register);
 
 app.listen(3000);

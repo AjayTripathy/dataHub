@@ -21,7 +21,7 @@ exports.register = function(req, res){
       return;
     }
     var user = req.form;
-    user.permissions = {'hostedUpload': false, 'hotlink': true };
+    user.permissions = {'hostedUpload': true, 'hotlinkUpload': true };
     user.salt = generateId();
     user.password = hash.sha256(user.password, user.salt);
     Users.insert(user, {safe: true}, function(err, doc){
@@ -36,6 +36,12 @@ exports.validateLogin = form(
   field('email').required('Email', 'Please enter an email').toLower().trim().isEmail('Email address is not valid'), 
   field('password').required('Password', 'Please enter a password')
 );
+
+exports.validateRegistration = form(
+ 	field('email').required('Email', 'Please enter an email').toLower().trim().isEmail('Email address is not valid'), 
+    field('password').required('Password', 'Please enter a password').minLength(6, 'Passwords must be 6 characters long'),
+    field('name').trim()
+)
 
 exports.login = function(req, res){
 	if (!req.form.isValid) {
