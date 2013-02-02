@@ -7,7 +7,6 @@ var mongo = require('mongoskin');
 var db = mongo.db('localhost:db27017/dataHub?auto_reconnect', {safe: true});
 var MongoStore = require('connect-mongodb');
 var fileUpload = require('./controllers/file-upload');
-var login = require('./controllers/login');
 
 var http = require('http');
 //var server = http.createServer(app);
@@ -51,9 +50,18 @@ app.post('/findDataSets', function(req, res){
 });
 
 app.get('/login', web.login);
+
 app.post('/login',form(
-    			field('email').required('Email', 'Please enter an email').toLower().trim().isEmail('Email address is not valid'), 
-    			field('password').required('Password', 'Please enter a password')
-  			), auth.login);
+    					field('email').required('Email', 'Please enter an email').toLower().trim().isEmail('Email address is not valid'), 
+    					field('password').required('Password', 'Please enter a password')
+  					), auth.login
+);
+app.post('/register', form(
+ 							field('email').required('Email', 'Please enter an email').toLower().trim().isEmail('Email address is not valid'), 
+    						field('password').required('Password', 'Please enter a password').minLength(6, 'Passwords must be 6 characters long'),
+    						field('name').trim()
+						), auth.register
+);
+
 
 app.listen(3000);

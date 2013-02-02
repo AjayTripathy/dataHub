@@ -19,7 +19,7 @@ exports.register = function(req, res){
       return;
     }
     var user = req.form;
-    user.permissions = {'hostedUpload': false, 'hotlink': true };
+    user.permissions = {'hostedUpload': true, 'hotlinkUpload': true };
     user.salt = generateId();
     user.password = hash.sha256(user.password, user.salt);
     Users.insert(user, {safe: true}, function(err, doc){

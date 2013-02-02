@@ -4,6 +4,9 @@ var db = mongo.db('localhost:27017/dataHub?auto_reconnect', {safe: true});
 var MetaData = db.collection('MetaData');
 var Users = db.collection('Users');
 var validate = require('../lib/validate');
+var formidable = require('formidable'),
+    http = require('http'),
+    util = require('util');
 
 
 
@@ -38,6 +41,7 @@ var constructMetadataFromReq = function(req, isHotlinked){
     var format = req.body.format;
     var tags = req.body.tags;
     var source = req.body.source;
+    var updateFrequency = req.body.updateFrequency;
     var metadata =  {
                         'tableTitle': tableTitle,
                         'columnNames': columnNames,
@@ -46,7 +50,9 @@ var constructMetadataFromReq = function(req, isHotlinked){
                         'isHotLinked': isHotLinked,
                         'format': format,
                         'tags': tags,
-                        'source': source 
+                        'source': source, 
+                        'updateFrequency': updateFrequency,
+                        'upvotes': 1
                     };
     return metadata
 }
@@ -60,6 +66,10 @@ var getFileThenInsertIfValid = function(hotlink, metadata){
 
 exports.uploadDataSetToStorage = function(req, res){
     //TODO: upload the file
+    var form = new formidable.IncomingForm()
+    form.parse(req, function(err, fields, files) {
+        // ...
+    });
     //TODO: Do a streaming upload of the file to s3
     toInsert['location'] = "";
     doInsertIfValid(toInsert, file);
