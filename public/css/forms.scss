@@ -3,8 +3,8 @@ input[type="text"], input[type="password"] {
   border-radius: 2px;
   border: 1px solid #d0d0d0;
   width: 75%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 14px;
 }
 
 .input-inline {
@@ -23,7 +23,7 @@ select {
 
 }
 
-button {
+button, .button {
   padding: 15px;
   background-color: #27A6DE;
   color: #fff;
